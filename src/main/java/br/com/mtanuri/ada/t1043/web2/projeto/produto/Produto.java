@@ -1,11 +1,13 @@
 package br.com.mtanuri.ada.t1043.web2.projeto.produto;
 
+import br.com.mtanuri.ada.t1043.web2.projeto.pedido.Pedido;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,4 +23,6 @@ public class Produto {
     private BigDecimal valor;
     private Integer quantidadeEstoque;
 
+    @ManyToMany(mappedBy = "items")
+    List<Pedido> pedidos;
 }
